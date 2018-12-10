@@ -8,9 +8,10 @@
 
 import UIKit
 import MapKit
+import GeoFire
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
