@@ -9,11 +9,13 @@
 import UIKit
 import MapKit
 import GeoFire
+import FirebaseDatabase
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var mapCentered = false
     var geoFire : GeoFire!
+    var geoFireRef: DatabaseReference!
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
@@ -21,6 +23,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.geoFireRef = Database.database().reference()
+        self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
         self.mapView.delegate = self
         self.mapView.userTrackingMode = .follow
         self.locationManager.delegate = self
@@ -67,6 +71,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             annotationView?.image = #imageLiteral(resourceName: "characters")
         }
         return annotationView
+    }
+    
+    func createSighting(forLocation location: CLLocation, with pokemonId: Int){
+        
+        self.geoFire.setLocation(location, forKey: "\(pokemonId)")
     }
 
     @IBAction func reportPokemon(_ sender: UIButton) {
