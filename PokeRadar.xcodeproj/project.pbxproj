@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		25C463B7FB63101A00C831BC /* Pods_PokeRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86389AF9080E447DDD686EEA /* Pods_PokeRadar.framework */; };
 		360E9A4921BED63800FCA120 /* GeoFire in Resources */ = {isa = PBXBuildFile; fileRef = 360E9A4821BED63800FCA120 /* GeoFire */; };
+		364A362321C00C1F00C7BAE0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A362221C00C1F00C7BAE0 /* Pokemon.swift */; };
+		364A362521C01A8000C7BAE0 /* PokemonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A362421C01A8000C7BAE0 /* PokemonFactory.swift */; };
 		36DE7326218B5EDB0029108E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7325218B5EDB0029108E /* AppDelegate.swift */; };
 		36DE7328218B5EDB0029108E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7327218B5EDB0029108E /* ViewController.swift */; };
 		36DE732B218B5EDB0029108E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DE7329218B5EDB0029108E /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		360E9A4821BED63800FCA120 /* GeoFire */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GeoFire; sourceTree = "<group>"; };
+		364A362221C00C1F00C7BAE0 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		364A362421C01A8000C7BAE0 /* PokemonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonFactory.swift; sourceTree = "<group>"; };
 		36DE7322218B5EDB0029108E /* PokeRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DE7325218B5EDB0029108E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DE7327218B5EDB0029108E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		364A362621C01A9E00C7BAE0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364A362221C00C1F00C7BAE0 /* Pokemon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		364A362721C01AAD00C7BAE0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36DE7327218B5EDB0029108E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		36DE7319218B5EDB0029108E = {
 			isa = PBXGroup;
 			children = (
@@ -84,11 +104,13 @@
 		36DE7324218B5EDB0029108E /* PokeRadar */ = {
 			isa = PBXGroup;
 			children = (
+				364A362721C01AAD00C7BAE0 /* Controller */,
+				364A362621C01A9E00C7BAE0 /* Model */,
 				360E9A4821BED63800FCA120 /* GeoFire */,
 				36DE7337218B5F880029108E /* pokemon.csv */,
 				36DE7339218B72320029108E /* GoogleService-Info.plist */,
 				36DE7325218B5EDB0029108E /* AppDelegate.swift */,
-				36DE7327218B5EDB0029108E /* ViewController.swift */,
+				364A362421C01A8000C7BAE0 /* PokemonFactory.swift */,
 				36DE7329218B5EDB0029108E /* Main.storyboard */,
 				36DE732C218B5EDD0029108E /* Assets.xcassets */,
 				36DE732E218B5EDD0029108E /* LaunchScreen.storyboard */,
@@ -218,8 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364A362521C01A8000C7BAE0 /* PokemonFactory.swift in Sources */,
 				36DE7328218B5EDB0029108E /* ViewController.swift in Sources */,
 				36DE7326218B5EDB0029108E /* AppDelegate.swift in Sources */,
+				364A362321C00C1F00C7BAE0 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
