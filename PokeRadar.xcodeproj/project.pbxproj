@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25C463B7FB63101A00C831BC /* Pods_PokeRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86389AF9080E447DDD686EEA /* Pods_PokeRadar.framework */; };
 		360E9A4921BED63800FCA120 /* GeoFire in Resources */ = {isa = PBXBuildFile; fileRef = 360E9A4821BED63800FCA120 /* GeoFire */; };
+		3647029F21C1207F00A7A242 /* PokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647029E21C1207F00A7A242 /* PokemonAnnotation.swift */; };
 		364A362321C00C1F00C7BAE0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A362221C00C1F00C7BAE0 /* Pokemon.swift */; };
 		364A362521C01A8000C7BAE0 /* PokemonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A362421C01A8000C7BAE0 /* PokemonFactory.swift */; };
 		36DE7326218B5EDB0029108E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7325218B5EDB0029108E /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		360E9A4821BED63800FCA120 /* GeoFire */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GeoFire; sourceTree = "<group>"; };
+		3647029E21C1207F00A7A242 /* PokemonAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAnnotation.swift; sourceTree = "<group>"; };
 		364A362221C00C1F00C7BAE0 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		364A362421C01A8000C7BAE0 /* PokemonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonFactory.swift; sourceTree = "<group>"; };
 		36DE7322218B5EDB0029108E /* PokeRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 		364A362621C01A9E00C7BAE0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3647029E21C1207F00A7A242 /* PokemonAnnotation.swift */,
 				364A362221C00C1F00C7BAE0 /* Pokemon.swift */,
 			);
 			path = Model;
@@ -243,6 +246,7 @@
 				364A362521C01A8000C7BAE0 /* PokemonFactory.swift in Sources */,
 				36DE7328218B5EDB0029108E /* ViewController.swift in Sources */,
 				36DE7326218B5EDB0029108E /* AppDelegate.swift in Sources */,
+				3647029F21C1207F00A7A242 /* PokemonAnnotation.swift in Sources */,
 				364A362321C00C1F00C7BAE0 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
