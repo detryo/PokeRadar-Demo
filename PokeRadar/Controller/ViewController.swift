@@ -61,14 +61,44 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        
+        let location = CLLocation(latitude: self.mapView.centerCoordinate.latitude,
+                                 longitude: self.mapView.centerCoordinate.longitude)
+        
+        self.showSightingsOnMap(on:location)
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         var annotationView : MKAnnotationView?
+        let annotationIdentifier = "Pokemon"
         
         if annotation.isKind(of: MKUserLocation.self){
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
             
             annotationView?.image = #imageLiteral(resourceName: "characters")
+            
+        }else if let dequeuedAnnotation = self.mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotation
+            annotationView?.annotation = annotation
+            
+        }else {
+            annotationView = MKAnnotationView(annotation: annotation,
+                                              reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let annotationView = annotationView,
+           let pokemonAnnotation = annotation as? PokemonAnnotation {
+            
+            annotationView.canShowCallout = true
+            annotationView.image = pokemonAnnotation.pokemon.image
+            
+            let button = UIButton()
+            button.frame  = CGRect(x: 0, y: 0, width: 30, height: 30)
+            button.setImage(#imageLiteral(resourceName: "79"), for: .normal)
+            annotationView.rightCalloutAccessoryView = button
         }
         return annotationView
     }
@@ -77,8 +107,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.geoFire.setLocation(location, forKey: "\(pokemonId)")
     }
+    
+    func showSightingsOnMap(on location:CLLocation){
+        let query = self.geoFire.query(at: location, withRadius: 2.0)
+        
+        query.observe(.keyEntered, with: { (key, location) in
+            
+            let annotation = PokemonAnnotation(coordinate: location.coordinate, pokemonId: Int(key)!)
+            self.mapView.addAnnotation(annotation)
+            
+        })
+    }
 
     @IBAction func reportPokemon(_ sender: UIButton) {
+        
+        let location = CLLocation(latitude: self.mapView.centerCoordinate.latitude,
+                                 longitude: self.mapView.centerCoordinate.longitude)
+        
+        let pokemonIdRand = arc4random_uniform(151) + 1
+        self.createSighting(forLocation: location, with: Int(pokemonIdRand))
     }
 }
 
