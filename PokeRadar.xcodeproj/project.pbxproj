@@ -85,6 +85,8 @@
 		364A362721C01AAD00C7BAE0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				364B44C921C279410042386C /* PokemonCollectionViewCell.swift */,
+				364B44C721C277FA0042386C /* PokedexCollectionViewController.swift */,
 				36DE7327218B5EDB0029108E /* ViewController.swift */,
 			);
 			path = Controller;
@@ -118,12 +120,10 @@
 				36DE7339218B72320029108E /* GoogleService-Info.plist */,
 				36DE7325218B5EDB0029108E /* AppDelegate.swift */,
 				364A362421C01A8000C7BAE0 /* PokemonFactory.swift */,
-				364B44C721C277FA0042386C /* PokedexCollectionViewController.swift */,
 				36DE7329218B5EDB0029108E /* Main.storyboard */,
 				36DE732C218B5EDD0029108E /* Assets.xcassets */,
 				36DE732E218B5EDD0029108E /* LaunchScreen.storyboard */,
 				36DE7331218B5EDD0029108E /* Info.plist */,
-				364B44C921C279410042386C /* PokemonCollectionViewCell.swift */,
 			);
 			path = PokeRadar;
 			sourceTree = "<group>";
