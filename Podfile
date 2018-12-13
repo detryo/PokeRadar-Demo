@@ -13,7 +13,6 @@ target 'PokeRadar' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'AFNetworking'
-
   pod 'GeoFire'
   
 end

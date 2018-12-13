@@ -64,7 +64,21 @@ class PokedexCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let pokemon = PokemonFactory.shared.getPokemon(with: indexPath.row+1)
-        _ = pokemon.id
+        
+        let alert = UIAlertController(title: "\(pokemon.name)", message: "Do you wont to notify this Pokemon?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (alert) in
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotifyPokemon"), object: pokemon)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {

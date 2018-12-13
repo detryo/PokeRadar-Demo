@@ -28,6 +28,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.delegate = self
         self.mapView.userTrackingMode = .follow
         self.locationManager.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(rawValue: "NotifyPokemon"), object: nil)
+        
         locationAuthStatus()
     }
     
@@ -97,7 +100,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
             let button = UIButton()
             button.frame  = CGRect(x: 0, y: 0, width: 30, height: 30)
-            button.setImage(#imageLiteral(resourceName: "79"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "location-map-flat"), for: .normal)
             annotationView.rightCalloutAccessoryView = button
         }
         return annotationView
@@ -126,6 +129,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         let pokemonIdRand = arc4random_uniform(151) + 1
         self.createSighting(forLocation: location, with: Int(pokemonIdRand))
+    }
+    
+    @objc func notify(notify: Notification){
+        
+        if let pokemon = notify.object as? Pokemon {
+            
+            let location = CLLocation(latitude:  self.mapView.centerCoordinate.latitude,
+                                      longitude: self.mapView.centerCoordinate.longitude)
+            
+            self.createSighting(forLocation: location, with: pokemon.id)
+        }
     }
 }
 
